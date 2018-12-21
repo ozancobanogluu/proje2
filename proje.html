@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function validateForm() {
+  var x = document.querySelector("#name").value;
+  
+  if (x == "") {
+    document.getElementById("1").innerHTML = "Bu alan bos birakilamaz!";
+
+     }
+  var em= document.querySelector("#email").value;
+  
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+com))$/;
+    if(!(re.test(String(em).toLowerCase()))){
+      document.getElementById("2").innerHTML = "Hatali giris yaptiniz!";
+      
+    }
+    if(em==""){
+        document.getElementById("2").innerHTML = "Bu alan bos birakilamaz!";
+      }
+  var y = document.querySelector("#sayisal").value;
+  if(y==""){
+        document.getElementById("3").innerHTML = "Bu alan bos birakilamaz!";
+      }
+  for (var i=0;i<y.length;i++){
+      if(!(y[i].charCodeAt(0)>=48 && y[i].charCodeAt(0)<=57)){
+        document.getElementById("3").innerHTML = "Hatali giris yaptiniz!";
+        
+      }
+    }
+
+  var z=document.querySelector("#basamakli").value;
+  if(z==""){
+        document.getElementById("4").innerHTML = "Bu alan bos birakilamaz!";
+      }
+  var zlen=z.length;
+  
+  for (var c=0;c<zlen;c++){
+      if((!(z[c].charCodeAt(0)>=48 && z[c].charCodeAt(0)<=57)) || (zlen!=12))  {
+        document.getElementById("4").innerHTML = "Hatali giris yaptiniz!";
+        
+      }
+      
+}
+  var a=document.querySelector("#alfa").value;
+  if(a==""){
+        document.getElementById("5").innerHTML = "Bu alan bos birakilamaz!";
+      }
+  for (var d=0;d<a.length;d++){
+      if((!(a[d].charCodeAt(0)>=65 && a[d].charCodeAt(0)<=90) ) && (!(a[d].charCodeAt(0)>=97 && a[d].charCodeAt(0)<=122))) {
+        document.getElementById("5").innerHTML = "Hatali giris yaptiniz!";
+        
+      }
+  }
+  var al=document.querySelector("#max30").value;
+  if(al==""){
+        document.getElementById("6").innerHTML = "Bu alan bos birakilamaz!";
+      }
+  var allen=al.length;
+  for (var w=0;w<allen;w++){
+      if((!(al[w].charCodeAt(0)>=65 && al[w].charCodeAt(0)<=90) ) && (!(al[w].charCodeAt(0)>=97 && al[w].charCodeAt(0)<=122)) || (allen>30) ) {
+        document.getElementById("6").innerHTML = "Hatali giris yaptiniz!";
+        
+      }
+  }
+
+  var uc=document.querySelector("#uckelime").value;
+   
+  var sp=uc.trim().split(/\s+/);
+  if(sp.length!=3){
+    document.getElementById("7").innerHTML = "Hatali giris yaptiniz!";
+    
+  }
+  if(uc==""){
+        document.getElementById("7").innerHTML = "Bu alan bos birakilamaz!";
+      }
+ 
+
+
+var pas=document.querySelector("#password").value;
+var pasLen=pas.length;
+var buySay=0;
+var kucSay=0;
+var rakSay=0;
+var nokSay=0;
+for (var q=0;q<pasLen;q++){
+    if(pas[q].charCodeAt(0)>=65 && pas[q].charCodeAt(0)<=90){
+        buySay++;
+    }
+    if(pas[q].charCodeAt(0)>=97 && pas[q].charCodeAt(0)<=122){
+        kucSay++;
+    }
+    if(pas[q].charCodeAt(0)>=48 && pas[q].charCodeAt(0)<=57){
+        rakSay++;
+    }
+    if(pas[q].charCodeAt(0)==33||pas[q].charCodeAt(0)==34||pas[q].charCodeAt(0)==39||pas[q].charCodeAt(0)==40||pas[q].charCodeAt(0)==41||(pas[q].charCodeAt(0)>=44 && pas[q].charCodeAt(0)<=47)||pas[q].charCodeAt(0)==58||pas[q].charCodeAt(0)==59||pas[q].charCodeAt(0)==63||pas[q].charCodeAt(0)==91||pas[q].charCodeAt(0)==92||pas[q].charCodeAt(0)==93||pas[q].charCodeAt(0)==95||pas[q].charCodeAt(0)==96||pas[q].charCodeAt(0)==123||pas[q].charCodeAt(0)==124||pas[q].charCodeAt(0)==125){
+        nokSay++;
+    }
+
+
+  }
+
+if(!(buySay>=1 && kucSay>=1 && rakSay>=1 && nokSay>=1 && pasLen>=8)){
+      document.getElementById("8").innerHTML = "Hatali giris yaptiniz!";
+      
+    }
+    if(pas==""){
+        document.getElementById("8").innerHTML = "Bu alan bos birakilamaz!";
+      }
+    return false;
+}
+</script>
+</head>
+<body>
+
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+  Aşağıdaki hiçbir input boş olmamalı: <br>
+  
+
+  <table style="width:40%">
+  <tr>
+    <td>Boş olmamalı: </td>
+    <td><input type="text" id="name"></td>
+    <td style= "color:#FF0000;" id="1"></td>
+
+  </tr>
+  <tr>
+    <td>E-mail (Kurallara uygun email): </td>
+    <td><input type="text" id="email"></td>
+    <td style= "color:#FF0000;" id="2"></td>
+  </tr>
+  <tr>
+    <td>Sadece sayısal: </td>
+    <td><input type="text" id="sayisal"></td>
+    <td style="color:#FF0000;" id="3"></td>
+  </tr>
+  <tr>
+    <td>Sadece sayısal olan ve 12 basamak uzunluğundaki sayi: </td>
+    <td><input type="text" id="basamakli"></td>
+    <td style="color:#FF0000;" id="4"></td>
+  </tr>
+  <tr>
+    <td>Sadece harf (a..z veya A..Z): </td>
+    <td><input type="text" id="alfa"></td>
+    <td style="color:#FF0000;" id="5"></td>
+  </tr>
+  <tr>
+    <td>Sadece harf ve en fazla 30 uzunlukta olan string: </td>
+    <td><input type="text" id="max30"></td>
+    <td style="color:#FF0000;" id="6"></td>
+  </tr>
+  <tr>
+    <td>3 kelimeden oluşan string: </td>
+    <td><input type="text" id="uckelime"></td>
+    <td style="color:#FF0000;" id="7"></td>
+  </tr>
+  <tr>
+    <td>En az 1 büyük harf, en az 1 küçük harf, en az bir rakam ve en az 1 noktalama işareti içeren ve en az 8 uzunluğunda olan metin: </td>
+    <td><input type="text" id="password"></td>
+    <td style="color:#FF0000;" id="8"></td>
+  </tr>
+  
+
+</table>
+
+<br>
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
