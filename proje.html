@@ -12,7 +12,7 @@ function validateForm() {
   
   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+com))$/;
     if(!(re.test(String(em).toLowerCase()))){
-      document.getElementById("2").innerHTML = "Hatali giris yaptiniz!";
+      document.getElementById("2").innerHTML = "Lutfen kurallara uygun email giriniz.";
       
     }
     if(em==""){
@@ -24,7 +24,7 @@ function validateForm() {
       }
   for (var i=0;i<y.length;i++){
       if(!(y[i].charCodeAt(0)>=48 && y[i].charCodeAt(0)<=57)){
-        document.getElementById("3").innerHTML = "Hatali giris yaptiniz!";
+        document.getElementById("3").innerHTML = "Lutfen sadece sayi giriniz.";
         
       }
     }
@@ -36,7 +36,7 @@ function validateForm() {
   
   for (var c=0;c<zlen;c++){
       if((!(z[c].charCodeAt(0)>=48 && z[c].charCodeAt(0)<=57)) || (zlen!=12))  {
-        document.getElementById("4").innerHTML = "Hatali giris yaptiniz!";
+        document.getElementById("4").innerHTML = "Lutfen sadece 12 basamakli sayi giriniz.";
         
       }
       
@@ -47,7 +47,7 @@ function validateForm() {
       }
   for (var d=0;d<a.length;d++){
       if((!(a[d].charCodeAt(0)>=65 && a[d].charCodeAt(0)<=90) ) && (!(a[d].charCodeAt(0)>=97 && a[d].charCodeAt(0)<=122))) {
-        document.getElementById("5").innerHTML = "Hatali giris yaptiniz!";
+        document.getElementById("5").innerHTML = "Lutfen sadece harflerden olusan string giriniz.";
         
       }
   }
@@ -58,7 +58,7 @@ function validateForm() {
   var allen=al.length;
   for (var w=0;w<allen;w++){
       if((!(al[w].charCodeAt(0)>=65 && al[w].charCodeAt(0)<=90) ) && (!(al[w].charCodeAt(0)>=97 && al[w].charCodeAt(0)<=122)) || (allen>30) ) {
-        document.getElementById("6").innerHTML = "Hatali giris yaptiniz!";
+        document.getElementById("6").innerHTML = "Lutfen sadece harflerden olusan string giriniz(max:30).";
         
       }
   }
@@ -66,7 +66,7 @@ function validateForm() {
    
   var sp=uc.trim().split(/\s+/);
   if(sp.length!=3){
-    document.getElementById("7").innerHTML = "Hatali giris yaptiniz!";
+    document.getElementById("7").innerHTML = "Lutfen 3 kelimeden olusan string giriniz.";
     
   }
   if(uc==""){
@@ -94,7 +94,7 @@ for (var q=0;q<pasLen;q++){
     }
   }
 if(!(buySay>=1 && kucSay>=1 && rakSay>=1 && nokSay>=1 && pasLen>=8)){
-      document.getElementById("8").innerHTML = "Hatali giris yaptiniz!";
+      document.getElementById("8").innerHTML = "Lutfen kurallara uygun parola giriniz.";
       
     }
     if(pas==""){
@@ -110,7 +110,7 @@ if(!(buySay>=1 && kucSay>=1 && rakSay>=1 && nokSay>=1 && pasLen>=8)){
   Aşağıdaki hiçbir input boş olmamalı: <br>
   
 
-  <table style="width:40%">
+  <table style="width:50%">
   <tr>
     <td>Boş olmamalı: </td>
     <td><input type="text" id="name"></td>
